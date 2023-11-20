@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mini Project</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            padding: auto;
+            margin: 80px;
+        }
+
+        .col {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+        .row {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            width: 100%;
+            margin-bottom: 20px;
+        }
+
+        .column {
+            width: 45%;
+        }
+
+        h1, h2 {
+            color: #333;
+        }
+
+        textarea, input {
+            width: 100%;
+            margin-bottom: 10px;
+        }
+
+        button {
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        } 
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/js-sha256/0.9.0/sha256.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsencrypt/3.0.0/jsencrypt.min.js"></script>
+    <script src="javascript.js"></script>
+</head>
+<body>
+    <div>
+        <h1>DỰ ÁN BẢO MẬT - MINI PROJECT</h1>
+        <h2>Họ và tên: Nguyễn Tấn Thiên_21119761</h2>
+    </div>
+    <!-- Hàm băm -->
+    <div class="column">
+        <h1>Hàm băm</h1>
+        <label for="inputText">Nhập văn bản:</label>
+        <textarea id="inputText" rows="6" cols="50"></textarea>
+        <button onclick="hashText()">Băm văn bản</button>
+    
+        <h3>Kết quả:</h3>
+        <textarea id="hashedText" rows="6" cols="50" readonly></textarea>
+    </div>
+
+    <!-- Mật mã bất đối xứng -->
+    <div class="col">
+        <h1>Mật mã bất đối xứng</h1>
+        <h2>Tạo cặp khóa</h2>
+        <!-- Tạo khóa -->
+        <button onclick="generateKeyPair()">Tạo cặp khóa</button>
+    </div>
+
+    <div class="row">
+        <div class="column">
+            <div class="key-column">
+                <h2>Public Key:</h2>
+                <textarea id="publicKey" rows="4" cols="25" readonly></textarea>
+            </div>
+        </div>
+        <div class="column">
+            <h2>Private Key:</h2>
+                <textarea id="privateKey" rows="4" cols="25" readonly></textarea>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="column">
+            <h2>Mã hóa RSA</h2>
+    
+            <!-- Encryption -->
+            <label for="plainText">Nhập văn bản:</label>
+            <!-- <input type="text" id="plainText" size="50"> -->
+            <textarea id="plainText" rows="6" cols="50"></textarea>
+            <label for="publicKeyEncrypt">Public Key:</label>
+            <textarea id="publicKeyEncrypt" rows="6" cols="50"></textarea>
+            <button onclick="encrypt()">Mã hóa</button>
+            <p>Văn bản được mã hóa (Base64):</p>
+            <textarea id="encryptedText" rows="6" cols="50" readonly></textarea>
+        </div>
+    
+        <div class="column">
+            <h2>Giải mã RSA</h2>
+    
+            <!-- Decryption -->
+            <label for="encryptedTextDecrypt">Văn bản được mã hóa (Base64):</label>
+            <textarea id="encryptedTextDecrypt" rows="6" cols="50"></textarea>
+            <label for="privateKeyDecrypt">Private Key:</label>
+            <textarea id="privateKeyDecrypt" rows="6" cols="50"></textarea>
+            <button onclick="decrypt()">Giải mã</button>
+            <p>Văn bản được giải mã:</p>
+            <textarea id="decryptedText" rows="6" cols="50" readonly></textarea>
+        </div>
+    </div>
+</body>
+</html>
