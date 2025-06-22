@@ -1,6 +1,4 @@
 DỰ ÁN BẢO MẬT - MINI PROJECT.
-Họ và tên: Nguyễn Tấn Thiên
-MSSV: 21119761
 Khái niệm và các thuật toán sử dụng
 •	Hàm Băm (Hash Function):
 o	Khái niệm: 
